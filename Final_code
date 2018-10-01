@@ -1,0 +1,31 @@
+first_list =[]
+total_sum = 0.0
+total_average = 0.0
+standard_dv = 0.0
+continue_user = "Y"
+n = 0
+
+def create_list (user_input):
+	first_list.append(user_input)
+	return first_list
+
+print ("Hello, I will calculate the sum, average and standard deviation of every number you give me.")	
+	
+while continue_user == "Y":
+	n = n+1
+	user_input = int (input ())
+	create_list (user_input)
+	total_sum = total_sum + user_input
+	continue_user = input("Do you want to add more numbers? Y(es)/N(o) ")
+	continue_user = continue_user.upper()
+	
+total_average = total_sum/n	
+
+for number in first_list:
+	standard_dv = (number - total_average)**2 + standard_dv
+standard_dv = (standard_dv/(n-1))**0.5
+		
+print ("Your list is " + str(first_list))
+print ("If you add them is " + str(total_sum))
+print ("The average of all those numbers is " + str(total_average))
+print ("The standard deviation is " + str(standard_dv))
